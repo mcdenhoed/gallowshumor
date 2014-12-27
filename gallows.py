@@ -10,10 +10,12 @@ class Guesser():
 		pass
 
 	def search(self):
-		dictionary_file = open(DICTIONARY, "r")
-		for line in file:
-			if re.search(sys.argv[1], line):
-				result += line.lower()
+		result = set()
+		dictionary_file = open(self.DICTIONARY, "r")
+		for line in dictionary_file:
+			if re.search(self.guessString, line):
+				result.add(line.lower().strip()	)
+		print result
 
 	def updateSet(self, wordinfo):
 		self.guessString = ""
@@ -47,6 +49,7 @@ class Guesser():
 				nope = True
 				break
 		guessString += "$"
+		print guessString
 		if not nope:
 			self.guessString = guessString
 
@@ -55,7 +58,7 @@ class Guesser():
 			wordinfo = raw_input("Word please (* is wildcard): ").lower()
 			self.updateSet(wordinfo)
 			self.makeSearchString(wordinfo)
-			self.search
+			self.search()
 
 if __name__ == "__main__":
 	g = Guesser()
