@@ -4,14 +4,12 @@ from collections import Counter
 class Guesser():
 	guessString = ""
 	guessed = set()
-	lookingfor = set()
 	DICTIONARY = "/etc/dictionaries-common/words"
 	length = 0
 	result = set()
 	def __init__(self):
-		for alpha in string.lowercase:
-			pass#self.lookingfor.add(alpha)
-
+		pass
+		
 	def search(self):
 		result = set()
 		dictionary_file = open(self.DICTIONARY, "r")
@@ -37,7 +35,6 @@ class Guesser():
 				pass
 			elif re.search("[a-z]", i) != None:
 				guessed.add(i)
-				#self.lookingfor.remove(i)
 			else:
 				print "Nice try"
 				nope = True
