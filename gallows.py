@@ -4,7 +4,7 @@ from collections import Counter
 class Guesser():
 	guessString = ""
 	guessed = set()
-	DICTIONARY = "/etc/dictionaries-common/words"
+	DICTIONARY = "/usr/share/dict/words"
 	length = 0
 	result = set()
 	def __init__(self):
@@ -18,6 +18,8 @@ class Guesser():
 				result.add(line.lower().strip()	)
 		print "{0} words matching".format(len(result))
 		self.result = result
+		if len(result) <= 10:
+			for a in result: print a
 
 	def alphabetSearch(self):
 		megastring = ''.join(self.result)
